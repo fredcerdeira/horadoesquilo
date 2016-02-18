@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link href='https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
@@ -20,10 +21,19 @@
             <div class="results">
               <ul id="jetsContent">
                 <li>
-                  <blockquote>RNS - Rolador Non Stop</blockquote>
+                  <blockquote class="toggle">RNS<i class="toggle-label">+</i></blockquote>
+                  <div class="desc">
+                      <strong>Rolador Non Stop<strong><br>
+                      Sempre a rolar com parte trajecto em alcatrão. Geralmente sem paragens.
+                  </div>
                 </li>
-                <li>Trepador - Muitas subidas, muitas descidas</li>
-                <li>PES - Prisão, Escadas</li>
+                <li>
+                  <blockquote class="toggle">TREPADOR<i class="toggle-label">+</i></blockquote>
+                  <div class="desc">
+                      <strong>Trepador<strong><br>
+                      Sempre a rolar com parte trajecto em alcatrão. Geralmente sem paragens.
+                  </div>
+                </li>
               </ul>
             </div
 
@@ -34,11 +44,21 @@
         <script>
         (function(){
 
-          var jets = new Jets({
-            searchTag: '#jetsSearch',
-            contentTag: '#jetsContent'
-          });
+          function initJets() {
+            var jets = new Jets({
+              searchTag: '#jetsSearch',
+              contentTag: '#jetsContent'
+            });
+          }
 
+          //-----
+          function toggle() {
+            var t = document.getElementsByClassName('toggle');
+            console.log(t)
+          }
+
+          toggle();
+          initJets();
         })();
         </script>
     </body>

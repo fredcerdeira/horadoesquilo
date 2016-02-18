@@ -1,9 +1,8 @@
 body {
   font-size: 62.5%;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-
-
   background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
   background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
   background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
@@ -23,7 +22,7 @@ main {
 }
 
 h1 {
-  color: #0f171a;
+  color: #946A03;
   font: 500 6em/1 'Bilbo Swash Caps', serif;
   margin: .3em 0;
   text-align: center;
@@ -36,30 +35,42 @@ input {
   height: 60px;
   display: block;
   font-size: 2em;
-  /*background-color: #cfcbbf*/
   margin-bottom: 2em;
+  color: #946A03;
 }
 input:focus {
-  border-color:#EC7B7B;
+  border-color:#946A03;
   outline: none;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #333;
+    color:    #aaa;
+    font-size: 1.1em;
+    line-height: 1.2
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #333;
+   color:    #aaa;
+   font-size: 1.1em;
+   line-height: 1.2
    opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #333;
+   color:    #aaa;
+   font-size: 1.1em;
+   line-height: 1.2
    opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #333;
+   color:    #aaa;
+   font-size: 1.1em;
+   line-height: 1.2
 }
 :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color:    #333;
+  color:    #aaa;
+  font-size: 1.1em;
+  line-height: 1.2
 }
+
+
 
 .results li {
   background-color: #fff;
@@ -67,8 +78,20 @@ input:focus {
   margin-bottom: 1em;
 }
 
+.desc {
+  display: none;
+}
+
+.toggle-label {
+  float: right;
+  font-style: normal;
+}
+
 blockquote {
   margin: 0;
+  color: #946A03;
+  font-size: 1.2em;
+  font-weight: 400;
 }
 
 ul {
@@ -77,5 +100,5 @@ ul {
 }
 
 li {
-  font-size: 1.4em;
+  font-size: 1.5em;
 }
