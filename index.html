@@ -21,17 +21,80 @@
             <div class="results">
               <ul id="jetsContent">
                 <li>
-                  <blockquote class="toggle">RNS<i class="toggle-label">+</i></blockquote>
+                  <h2 class="toggle">RNS<i class="toggle-label"></i></h2>
                   <div class="desc">
-                      <strong>Rolador Non Stop<strong><br>
-                      Sempre a rolar com parte trajecto em alcatrão. Geralmente sem paragens.
+                      <blockquote>Rolador Non Stop</blockquote>
+                      <p>Sempre a rolar com parte do trajecto em alcatrão. Geralmente sem paragens.</p>
                   </div>
                 </li>
                 <li>
-                  <blockquote class="toggle">TREPADOR<i class="toggle-label">+</i></blockquote>
+                  <h2 class="toggle">TREPADOR<i class="toggle-label"></i></h2>
                   <div class="desc">
-                      <strong>Trepador<strong><br>
-                      Sempre a rolar com parte trajecto em alcatrão. Geralmente sem paragens.
+                      <blockquote>Trepador</blockquote>
+                      <p>Subidas e Descidas.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">TNS<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Trepador Non Stop</blockquote>
+                      <p>Subidas e Descidas sem parar para descansar.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">RSS<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Rolador Sem Stress</blockquote>
+                      <p>Rolador a ritmo calmo, com paragem para água.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">PES<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Pedreira, Escadas e Subidas</blockquote>
+                      <p>Passar pela Pedreira com escadas e algumas subidas pacíficas.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">TACQENTA<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Trail Anda Cá Que Eu Não Te Aleijo</blockquote>
+                      <p>É melhor perguntar ao Pedro Conceição...</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">RK6MP<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Rolador Kamikaze 6X Mamede, Prisão</blockquote>
+                      <p>Sempre a rolar passagem pelo Kamikaze, fazer séries no Mamede e passar pela Prisão.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">TTV<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Trepador Tyna Valada</blockquote>
+                      <p>Sempre a subir para fugir da Tyna Valada.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">RSNScC<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Rolador Sereno Non Stop com Cozido</blockquote>
+                      <p>Sempre a rola a ritmo tranquilo com passagem pelo Cozido.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">C2PBC<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Ciclovia 2x Prision Break Ciclovia</blockquote>
+                      <p>Ciclovia 2x Prision Break Ciclovia</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">EBNHND<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Em Bruxelas Não Há Nada Disto</blockquote>
+                      <p>Hard Core, tributo ao Timoneiro-mor.</p>
                   </div>
                 </li>
               </ul>
@@ -44,20 +107,55 @@
         <script>
         (function(){
 
+          //-------------------------------------------------------
+
           function initJets() {
+            var teste = function() {
+              console.log("didsearch")
+            }
             var jets = new Jets({
               searchTag: '#jetsSearch',
-              contentTag: '#jetsContent'
+              contentTag: '#jetsContent',
+              didSearch: teste()
             });
+
           }
 
-          //-----
-          function toggle() {
+          //-------------------------------------------------------
+
+          function toggleEl() {
+
+            // hasClass helper
+            function hasClass(elem, className) {
+            	return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+            }
+
+            // toggleClass helper
+            function toggleClass(elem, className) {
+            	var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+                if (hasClass(elem, className)) {
+                    while (newClass.indexOf(" " + className + " ") >= 0 ) {
+                        newClass = newClass.replace( " " + className + " " , " " );
+                    }
+                    elem.className = newClass.replace(/^\s+|\s+$/g, '');
+
+                } else {
+                    elem.className += ' ' + className;
+                }
+            }
+
             var t = document.getElementsByClassName('toggle');
-            console.log(t)
+
+            for(var i = 0; i < t.length; i++) {
+              t[i].onclick = function(){
+                toggleClass(this, 'open');
+              }
+            }
           }
 
-          toggle();
+
+
+          toggleEl();
           initJets();
         })();
         </script>
