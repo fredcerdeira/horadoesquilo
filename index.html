@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link href='https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
@@ -20,10 +21,82 @@
             <div class="results">
               <ul id="jetsContent">
                 <li>
-                  <blockquote>RNS - Rolador Non Stop</blockquote>
+                  <h2 class="toggle">RNS<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Rolador Non Stop</blockquote>
+                      <p>Sempre a rolar com parte do trajecto em alcatrão. Geralmente sem paragens.</p>
+                  </div>
                 </li>
-                <li>Trepador - Muitas subidas, muitas descidas</li>
-                <li>PES - Prisão, Escadas</li>
+                <li>
+                  <h2 class="toggle">TREPADOR<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Trepador</blockquote>
+                      <p>Subidas e Descidas.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">TNS<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Trepador Non Stop</blockquote>
+                      <p>Subidas e Descidas sem parar para descansar.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">RSS<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Rolador Sem Stress</blockquote>
+                      <p>Rolador a ritmo calmo, com paragem para água.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">PES<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Pedreira, Escadas e Subidas</blockquote>
+                      <p>Passar pela Pedreira com escadas e algumas subidas pacíficas.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">TACQENTA<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Trail Anda Cá Que Eu Não Te Aleijo</blockquote>
+                      <p>É melhor perguntar ao Pedro Conceição...</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">RK6MP<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Rolador Kamikaze 6X Mamede, Prisão</blockquote>
+                      <p>Sempre a rolar passagem pelo Kamikaze, fazer séries no Mamede e passar pela Prisão.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">TTV<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Trepador Tyna Valada</blockquote>
+                      <p>Sempre a subir para fugir da Tyna Valada.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">RSNScC<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Rolador Sereno Non Stop com Cozido</blockquote>
+                      <p>Sempre a rola a ritmo tranquilo com passagem pelo Cozido.</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">C2PBC<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Ciclovia 2x Prision Break Ciclovia</blockquote>
+                      <p>Ciclovia 2x Prision Break Ciclovia</p>
+                  </div>
+                </li>
+                <li>
+                  <h2 class="toggle">EBNHND<i class="toggle-label"></i></h2>
+                  <div class="desc">
+                      <blockquote>Em Bruxelas Não Há Nada Disto</blockquote>
+                      <p>Hard Core, tributo ao Timoneiro-mor.</p>
+                  </div>
+                </li>
               </ul>
             </div
 
@@ -34,11 +107,56 @@
         <script>
         (function(){
 
-          var jets = new Jets({
-            searchTag: '#jetsSearch',
-            contentTag: '#jetsContent'
-          });
+          //-------------------------------------------------------
 
+          function initJets() {
+            var teste = function() {
+              console.log("didsearch")
+            }
+            var jets = new Jets({
+              searchTag: '#jetsSearch',
+              contentTag: '#jetsContent',
+              didSearch: teste()
+            });
+
+          }
+
+          //-------------------------------------------------------
+
+          function toggleEl() {
+
+            // hasClass helper
+            function hasClass(elem, className) {
+            	return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+            }
+
+            // toggleClass helper
+            function toggleClass(elem, className) {
+            	var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+                if (hasClass(elem, className)) {
+                    while (newClass.indexOf(" " + className + " ") >= 0 ) {
+                        newClass = newClass.replace( " " + className + " " , " " );
+                    }
+                    elem.className = newClass.replace(/^\s+|\s+$/g, '');
+
+                } else {
+                    elem.className += ' ' + className;
+                }
+            }
+
+            var t = document.getElementsByClassName('toggle');
+
+            for(var i = 0; i < t.length; i++) {
+              t[i].onclick = function(){
+                toggleClass(this, 'open');
+              }
+            }
+          }
+
+
+
+          toggleEl();
+          initJets();
         })();
         </script>
     </body>

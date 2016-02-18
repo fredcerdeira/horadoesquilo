@@ -1,9 +1,8 @@
 body {
   font-size: 62.5%;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-
-
   background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
   background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
   background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
@@ -23,7 +22,7 @@ main {
 }
 
 h1 {
-  color: #0f171a;
+  color: #946A03;
   font: 500 6em/1 'Bilbo Swash Caps', serif;
   margin: .3em 0;
   text-align: center;
@@ -31,35 +30,51 @@ h1 {
 
 input {
   -webkit-appearance: none;
-  border: 3px dashed #fff;
+  border: 2px dashed #fff;
   width: 100%;
   height: 60px;
   display: block;
   font-size: 2em;
-  /*background-color: #cfcbbf*/
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
+  color: #946A03;
 }
 input:focus {
-  border-color:#EC7B7B;
+  border-color:#946A03;
   outline: none;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #333;
+    color:    #aaa;
+    font-style: italic;
+    font-size: 1.25em;
+    line-height: 2;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #333;
+   color:    #aaa;
+   font-size: 1.1em;
+   line-height: 1.2
    opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #333;
+   color:    #aaa;
+   font-style: italic;
+   font-size: 1.25em;
+   line-height: 2;
    opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #333;
+   color:    #aaa;
+   font-style: italic;
+   font-size: 1.25em;
+   line-height: 2;
 }
 :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color:    #333;
+  color:    #aaa;
+  font-style: italic;
+  font-size: 1.25em;
+  line-height: 2;
 }
+
+
 
 .results li {
   background-color: #fff;
@@ -67,8 +82,43 @@ input:focus {
   margin-bottom: 1em;
 }
 
-blockquote {
+
+.desc {
+  overflow: hidden;
+  padding: 1em .5em .5em .5em;
+}
+
+.toggle {
+  cursor: pointer;
+}
+
+.toggle ~ .desc {
+  display: none;
+}
+
+.toggle.open ~ .desc {
+  display: block;
+}
+
+.toggle-label {
+  float: right;
+  font-style: normal;
+  position: relative;
+}
+
+.toggle-label:before {
+  content: "+"
+}
+.toggle.open .toggle-label:before {
+  content: "-"
+}
+
+
+h2 {
   margin: 0;
+  color: #946A03;
+  font-size: 1.2em;
+  font-weight: 400;
 }
 
 ul {
@@ -77,5 +127,40 @@ ul {
 }
 
 li {
-  font-size: 1.4em;
+  font-size: 1.5em;
+}
+
+p {
+  margin: 0;
+  float: left;
+  width: 100%;
+  color: #737373;
+  font-weight: 400;
+}
+
+blockquote {
+  position: relative;
+  margin: 0;
+  padding: 0 25px;
+  display: inline-block;
+  float: left;
+  line-height: 1;
+  margin-bottom: .75em;
+  color: #aaa;
+}
+
+blockquote:before {
+    top: -8px;
+    left: 0;
+    content: '\201C';
+}
+blockquote:after {
+    top: -8px;
+    right: 0;
+    content: '\201D';
+}
+blockquote:after, blockquote:before {
+    color: #aaa;
+    font-size: 3em;
+    position: absolute;
 }
