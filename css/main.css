@@ -7,7 +7,7 @@ body {
 
 main {
   max-width: 900px;
-  min-width: 320px;
+  min-width: 290px;
   margin: 30px auto;
   display: block;
   padding: 0 15px;
@@ -15,9 +15,15 @@ main {
 
 h1 {
   color: #946A03;
-  font: 500 6em/1 'Bilbo Swash Caps', serif;
+  font: 500 5em/1 'Bilbo Swash Caps', serif;
   margin: .5em 0;
   text-align: center;
+}
+
+@media (min-width: 480px) {
+  h1 {
+    font-size: 6em;
+  }
 }
 
 input {
@@ -67,13 +73,10 @@ input:focus {
   line-height: 2;
 }
 
-
-
 .results li {
   padding: 1em;
   border-top: 1px dotted #E8E8E8;
 }
-
 
 .desc {
   overflow: hidden;
